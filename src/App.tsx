@@ -7,13 +7,13 @@ type TodoType = {
   userId: number;
   id: number;
   title: string;
-  completed: boolean
+  completed: boolean;
 };
 
 function App() {
-  const [ todos, setTodos ] = useState<any>([]);
+  const [ todos, setTodos ] = useState<Array<TodoType>>([]);
   const onClickFetchData = () => {
-    axios.get<Array<TodoType>("https://jsonplaceholder.typicode.com/todos").then((res) => {
+    axios.get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos").then((res) => {
       setTodos(res.data);
     });
   };
